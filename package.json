@@ -4,7 +4,9 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx nodemon index.js"
+  },
   "keywords": [],
   "author": "Gabriel Moraes",
   "license": "ISC",
