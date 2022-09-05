@@ -1,7 +1,7 @@
 import express, { application } from 'express';
 import { MongoClient, ObjectId } from 'mongodb';
 import dotenv from 'dotenv';
-
+import joi from 'joi';
 import cors from 'cors';
 import dayjs from 'dayjs';
 
@@ -158,9 +158,7 @@ setInterval(async () => {
         const deleteParticipants = await db.collection('participants').find({ lastStatus: {$lt: timeNowMinus10s} }).toArray();
 
         const deletedParticipants = await db.collection('participants').deleteMany({lastStatus: {$lt: timeNowMinus10s}});
-        // console.log(deletedParticipants);
-        
-        // console.log(deleteParticipants.length);
+ 
         deleteParticipants.forEach(saiDaSala);
 
     async function saiDaSala(item, indice){
